@@ -531,8 +531,8 @@ class LiveWebLoader(BaseLoader):
             if upstream_res:
                 no_except_close(upstream_res)
             if logger.isEnabledFor(logging.DEBUG):
-                import traceback
-                traceback.print_exc()
+                # import traceback
+                # traceback.print_exc()
                 logger.debug('FAILED: ' + method + ' ' + load_url + ': ' + str(e))
 
             raise LiveResourceException(load_url)

@@ -123,7 +123,8 @@ class RedisPendingCounterTempBuffer(tempfile.SpooledTemporaryFile):
         try:
             super(RedisPendingCounterTempBuffer, self).close()
         except:
-            traceback.print_exc()
+            # traceback.print_exc()
+            pass
 
         self.redis.incrby(self.key, -1)
         self.redis.expire(self.key, self.timeout)

@@ -14,8 +14,8 @@ debug: true
 collections:
     all: $all
     pywb:
-        index_paths: ./sample_archive/cdx/
-        archive_paths: ./sample_archive/warcs/
+        index_paths: /var/local/wct/pywb/archive/cdx/
+        archive_paths: /var/local/wct/pywb/archive/warcs/
 
 # Settings for each collection
 use_js_obj_proxy: true

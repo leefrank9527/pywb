@@ -10,7 +10,7 @@ from pywb.warcserver.resource.responseloader import  WARCPathLoader, LiveWebLoad
 
 import six
 import logging
-import traceback
+# import traceback
 
 
 logger = logging.getLogger('warcserver')
@@ -163,7 +163,8 @@ class ResourceHandler(IndexHandler):
                 except (WbException, ArchiveLoadFailed) as e:
                     last_exc = e
                     if logger.isEnabledFor(logging.DEBUG):
-                        traceback.print_exc()
+                        # traceback.print_exc()
+                        pass
                     errs[str(loader)] = str(e)
 
         if last_exc:

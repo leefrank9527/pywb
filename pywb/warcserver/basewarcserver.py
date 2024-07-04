@@ -7,7 +7,7 @@ from werkzeug.routing import Map, Rule
 from werkzeug.exceptions import HTTPException
 
 import requests
-import traceback
+# import traceback
 import json
 
 import six
@@ -100,7 +100,9 @@ class BaseWarcServer(object):
 
         except Exception as e:
             if self.debug:
-                traceback.print_exc()
+                # traceback.print_exc()
+                pass
+
             message = 'Internal Error: ' + str(e)
             status = 500
             return self.send_error({}, start_response,
@@ -119,7 +121,8 @@ class BaseWarcServer(object):
         last_exc = errs.pop('last_exc', None)
         if last_exc:
             if self.debug:
-                traceback.print_exc()
+                # traceback.print_exc()
+                pass
 
             if not hasattr(last_exc, 'status'):
                 status = '503 Archive Not Available'

@@ -193,8 +193,9 @@ class WarcServer(BaseWarcServer):
             except:
                 print('Invalid Collection: ' + name)
                 if self.debug:
-                    import traceback
-                    traceback.print_exc()
+                    # import traceback
+                    # traceback.print_exc()
+                    pass
                 continue
 
             routes[name] = handler

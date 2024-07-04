@@ -1,5 +1,5 @@
 import logging
-import traceback
+# import traceback
 
 from gevent import spawn
 from gevent.pywsgi import WSGIHandler, WSGIServer
@@ -42,7 +42,7 @@ class GeventServer(object):
             server.serve_forever()
         except Exception as e:
             logging.debug('server failed to start on ' + str(port))
-            traceback.print_exc()
+            # traceback.print_exc()
 
     def make_server(self, app, port, hostname, handler_class, direct=False):
         """Creates and starts the server. If direct is true the server is run

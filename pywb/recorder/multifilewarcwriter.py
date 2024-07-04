@@ -2,7 +2,7 @@ import base64
 import datetime
 import os
 import shutil
-import traceback
+# import traceback
 
 import portalocker
 from warcio.timeutils import timestamp20_now
@@ -53,7 +53,7 @@ class MultiFileWARCWriter(BaseWARCWriter):
             iso_dt = record.rec_headers.get_header('WARC-Date')
             result = self.dedup_index.lookup_revisit(params, digest, url, iso_dt)
         except Exception as e:
-            traceback.print_exc()
+            # traceback.print_exc()
             result = None
 
         if result == 'skip':
@@ -211,7 +211,7 @@ class MultiFileWARCWriter(BaseWARCWriter):
             return True
 
         except Exception as e:
-            traceback.print_exc()
+            # traceback.print_exc()
             close_file = True
             return False
 

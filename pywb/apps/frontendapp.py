@@ -1,3 +1,4 @@
+import sys; sys.tracebacklimit = 0
 from gevent.monkey import patch_all; patch_all()
 
 from werkzeug.routing import Map, Rule, RequestRedirect, Submount
@@ -29,7 +30,7 @@ from pywb.apps.wbrequestresponse import WbResponse
 import os
 import re
 
-import traceback
+# import traceback
 import requests
 import logging
 
@@ -68,6 +69,8 @@ class FrontEndApp(object):
         :param str|None config_file: Path to the config file
         :param dict|None custom_config: Dictionary containing additional configuration information
         """
+        import pydevd; pydevd.settrace()
+
         config_file = config_file or './config.yaml'
         self.handler = self.handle_request
         self.warcserver = WarcServer(config_file=config_file,
@@ -689,7 +692,8 @@ class FrontEndApp(object):
 
         except Exception as e:
             if self.debug:
-                traceback.print_exc()
+                # traceback.print_exc()
+                pass
 
             response = self.rewriterapp._error_response(environ, WbException('Internal Error: ' + str(e)))
 
@@ -879,5 +883,7 @@ class MetadataCache(object):
 
 # ============================================================================
 if __name__ == "__main__":
-    app_server = FrontEndApp.create_app(port=8080)
+    print("Going to start app")
+    print("port: 5001")
+    app_server = FrontEndApp.create_app(port=5001)
     app_server.join()

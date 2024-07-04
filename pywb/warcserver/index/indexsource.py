@@ -269,8 +269,9 @@ class XmlQueryIndexSource(BaseIndexSource):
 
         except Exception:
             if self.logger.getEffectiveLevel() == logging.DEBUG:
-                import traceback
-                traceback.print_exc()
+                # import traceback
+                # traceback.print_exc()
+                pass
 
             raise NotFoundException('url {0} not found'.format(url))
 

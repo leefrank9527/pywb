@@ -1,7 +1,7 @@
 import logging
 import os
 import sys
-import traceback
+# import traceback
 
 import warcio
 
@@ -27,7 +27,8 @@ except:  # pragma: no cover
 try:  # pragma: no cover
     from collections import OrderedDict
 except ImportError:  # pragma: no cover
-    from ordereddict import OrderedDict
+    # from ordereddict import OrderedDict
+    pass
 
 
 from argparse import ArgumentParser, RawTextHelpFormatter
@@ -306,7 +307,8 @@ def write_multi_cdx_index(output, inputs, **options):
                         for entry in entry_iter:
                             writer.write(entry, filename)
                     except warcio.exceptions.ArchiveLoadFailed:
-                        logging.error('Error while indexing file %s, %s',filename,traceback.format_exc())
+                        # logging.error('Error while indexing file %s, %s',filename,traceback.format_exc())
+                        logging.error('Error while indexing file %s', filename)
 
         return writer
 

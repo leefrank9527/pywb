@@ -606,8 +606,8 @@ class HTMLRewriter(HTMLRewriterMixin, HTMLParser):
         try:
             HTMLParser.feed(self, string)
         except Exception as e:  # pragma: no cover
-            import traceback
-            traceback.print_exc()
+            # import traceback
+            # traceback.print_exc()
             self.out.write(string)
 
     def _internal_close(self):

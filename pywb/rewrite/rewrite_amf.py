@@ -40,8 +40,8 @@ class RewriteAMF(BufferedRewriter):  #pragma: no cover
             return BytesIO(remoting.encode(res).getvalue())
 
         except Exception as e:
-            import traceback
-            traceback.print_exc()
+            # import traceback
+            # traceback.print_exc()
             print(e)
 
             stream.seek(0)

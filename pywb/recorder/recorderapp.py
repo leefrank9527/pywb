@@ -1,6 +1,6 @@
 import json
 import tempfile
-import traceback
+# import traceback
 
 import gevent
 import gevent.queue
@@ -53,7 +53,8 @@ class RecorderApp(object):
             try:
                 self._write_one()
             except Exception:
-                traceback.print_exc()
+                # traceback.print_exc()
+                pass
 
     def _write_one(self):
         req_pay = None
@@ -90,7 +91,8 @@ class RecorderApp(object):
                 if resp_pay:
                     no_except_close(resp_pay)
             except Exception as e:
-                traceback.print_exc()
+                # traceback.print_exc()
+                pass
 
     def send_error(self, exc, start_response):
         return self.send_message({'error': repr(exc)},
@@ -163,7 +165,8 @@ class RecorderApp(object):
         try:
             return self.handle_call(environ, start_response)
         except Exception:
-            traceback.print_exc()
+            # traceback.print_exc()
+            pass
 
     def handle_call(self, environ, start_response):
         input_req = DirectWSGIInputRequest(environ)
@@ -296,7 +299,8 @@ class RespWrapper(Wrapper):
             try:
                 self.stream.close()
             except Exception as e:
-                traceback.print_exc()
+                # traceback.print_exc()
+                pass
 
             self._write_to_file()
 
@@ -311,7 +315,7 @@ class RespWrapper(Wrapper):
                          self.headers, self.out, self.params)
                 self.queue.put(entry)
         except Exception:
-            traceback.print_exc()
+            # traceback.print_exc()
             skipping = True
 
         finally:

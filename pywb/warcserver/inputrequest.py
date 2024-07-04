@@ -299,8 +299,8 @@ class MethodQueryCanonicalizer(object):
             return urlencode({"request": Amf.get_representation(res)})
 
         except Exception as e:
-            import traceback
-            traceback.print_exc()
+            # import traceback
+            # traceback.print_exc()
             print(e)
             return None
 
