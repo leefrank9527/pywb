@@ -1,5 +1,5 @@
 var VueUI = (function (exports) {
-  'use strict';
+  //'use strict';
 
   class PywbI18N {
     static #locale = ''; // private (can only be set here)
